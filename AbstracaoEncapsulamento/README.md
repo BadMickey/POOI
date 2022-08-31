@@ -1,0 +1,1 @@
+Projeto java dos slides de introdução à Orientação a Objetos - Abstração e Encapsulamento.
