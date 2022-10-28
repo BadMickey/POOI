@@ -16,9 +16,12 @@ public class Equipe {
     public List<Jogador> Reservas = new ArrayList<>();
     private int TotalVitorias;
     private int TotalDerrotas;
+    private boolean Divisa1;
+    private boolean Divisa2;
+    private boolean Regional;
 
     public Equipe(int CodEquipe, String Nome, Tecnico tecnico, String Divisao, int Pontuacao, int TotalVitorias,
-            int TotalDerrotas) {
+            int TotalDerrotas, boolean Divisa1, boolean Divisa2, boolean Regional) {
         Random r = new Random();
         this.CodEquipe = r.nextInt(20);
         this.Nome = Nome;
@@ -27,6 +30,9 @@ public class Equipe {
         this.Pontuacao = Pontuacao;
         this.TotalVitorias = TotalVitorias;
         this.TotalDerrotas = TotalDerrotas;
+        this.Divisa1 = Divisa1;
+        this.Divisa2 = Divisa2;
+        this.Regional = Regional;
     }
 
     public int getCodEquipe() {
@@ -85,6 +91,30 @@ public class Equipe {
         TotalDerrotas = totalDerrotas;
     }
 
+    public boolean isDivisa1() {
+        return Divisa1;
+    }
+
+    public void setDivisa1(boolean divisa1) {
+        Divisa1 = divisa1;
+    }
+
+    public boolean isDivisa2() {
+        return Divisa2;
+    }
+
+    public void setDivisa2(boolean divisa2) {
+        Divisa2 = divisa2;
+    }
+
+    public boolean isRegional() {
+        return Regional;
+    }
+
+    public void setRegional(boolean regional) {
+        Regional = regional;
+    }
+
     public void atribuirTecnico(String Nome, int CPF, String Telefone, String Funcao, String Email, int Jogos,
             int CodTecnico, Equipe equipe) {
         Tecnico tecnico = new Tecnico(Nome, CPF, Telefone, Funcao, Email, Jogos, CodTecnico, equipe);
@@ -96,8 +126,14 @@ public class Equipe {
             int TotalGols) {
         Jogador jogador = new Jogador(Nome, CPF, Telefone, Funcao, Email, CodJogador, Posicao, TotalCartoesVermelho,
                 TotalCartoesAmarelo, Cartoes, Titular, TotalGols);
-        Jogadores.add(jogador);
-        System.out.println("O Jogador " + jogador.getNome() + "foi contratado pelo " + this.Nome);
+        if (jogador.isTitular() == True) {
+            Jogadores.add(jogador);
+            Titulares.add(jogador);
+            System.out.println("O Jogador " + jogador.getNome() + "foi contratado pelo " + this.Nome + "como titular");
+        } else {
+            Jogadores.add(jogador);
+            Reservas.add(jogador);
+            System.out.println("O Jogador " + jogador.getNome() + "foi contratado pelo " + this.Nome + "como reserva");
+        }
     }
-
 }
