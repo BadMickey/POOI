@@ -61,4 +61,7 @@ public class Campeonato {
         Rodada = rodada;
     }
 
+    public void GerarChaves(List<Equipe> equipes) {
+
+    }
 }
