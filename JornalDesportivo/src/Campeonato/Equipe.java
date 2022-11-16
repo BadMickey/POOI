@@ -1,6 +1,7 @@
-package Pessoa;
+package Campeonato;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -20,14 +21,17 @@ public class Equipe {
     private boolean Divisa2;
     private boolean Regional;
 
-    public Equipe(int CodEquipe, String Nome, Tecnico tecnico, String Divisao, int Pontuacao, int TotalVitorias,
+    public Equipe(int CodEquipe, String Nome, Tecnico tecnico, String Divisao, int Pontuacao, List Jogadores,
+            List Titulares, List Reservas, int TotalVitorias,
             int TotalDerrotas, boolean Divisa1, boolean Divisa2, boolean Regional) {
-        Random r = new Random();
-        this.CodEquipe = r.nextInt(20);
+        this.CodEquipe = CodEquipe;
         this.Nome = Nome;
         this.tecnico = tecnico;
         this.Divisao = Divisao;
         this.Pontuacao = Pontuacao;
+        this.Jogadores = Jogadores;
+        this.Titulares = Titulares;
+        this.Reservas = Reservas;
         this.TotalVitorias = TotalVitorias;
         this.TotalDerrotas = TotalDerrotas;
         this.Divisa1 = Divisa1;
@@ -115,17 +119,17 @@ public class Equipe {
         Regional = regional;
     }
 
-    public void atribuirTecnico(String Nome, int CPF, String Telefone, String Funcao, String Email, int Jogos,
-            int CodTecnico, Equipe equipe) {
-        Tecnico tecnico = new Tecnico(Nome, CPF, Telefone, Funcao, Email, Jogos, CodTecnico, equipe);
+    public void atribuirTecnico(String Nome, String CPF, String Telefone, String Funcao, String Email, int Jogos,
+            int CodTecnico) {
+        Tecnico tecnico = new Tecnico(Nome, CPF, Telefone, Funcao, Email, Jogos, CodTecnico);
         System.out.println("O técnico " + tecnico.getNome() + "foi contratado pelo " + this.Nome);
     }
 
-    public void atribuirJogador(String Nome, int CPF, String Telefone, String Funcao, String Email, int CodJogador,
-            String Posicao, int TotalCartoesVermelho, int TotalCartoesAmarelo, String Cartoes, boolean Titular,
+    public void atribuirJogador(String Nome, String CPF, String Telefone, String Funcao, String Email, int CodJogador,
+            String Posicao, int TotalCartoesVermelho, int TotalCartoesAmarelo, boolean Titular,
             int TotalGols) {
         Jogador jogador = new Jogador(Nome, CPF, Telefone, Funcao, Email, CodJogador, Posicao, TotalCartoesVermelho,
-                TotalCartoesAmarelo, Cartoes, Titular, TotalGols);
+                TotalCartoesAmarelo, Titular, TotalGols);
         if (jogador.isTitular() == True) {
             Jogadores.add(jogador);
             Titulares.add(jogador);
