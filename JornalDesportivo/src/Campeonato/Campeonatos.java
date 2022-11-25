@@ -63,17 +63,12 @@ public class Campeonatos {
         this.equipes = equipes;
     }
 
-    public void adicionarEquipes(int CodEquipe, String Nome, Tecnico tecnico, String Divisao, int Pontuacao,
-            List Jogadores,
-            List Titulares, List Reservas, int TotalVitorias,
-            int TotalDerrotas, boolean Divisa1, boolean Divisa2, boolean Regional) {
-        Equipe eqp = new Equipe(CodEquipe, Nome, null, Divisao, Pontuacao, null, null, null, TotalVitorias,
-                TotalDerrotas, Divisa1, Divisa2, Regional);
+    public void adicionarEquipes(int CodEquipe, String Nome, Tecnico tecnico, String Divisao, int Pontuacao, List Jogadores, List Titulares, List Reservas, int TotalVitorias, int TotalDerrotas, boolean Divisa1, boolean Divisa2, boolean Regional) {
+        Equipe eqp = new Equipe(CodEquipe, Nome, null, Divisao, Pontuacao, null, null, null, TotalVitorias, TotalDerrotas, Divisa1, Divisa2, Regional);
         equipes.add(eqp);
     }
 
-    public void adicionarArbitros(String Nome, int CPF, String Telefone, String Funcao, String Email, int CodArbitro,
-            int Cartoes, int Jogos) {
+    public void adicionarArbitros(String Nome, int CPF, String Telefone, String Funcao, String Email, int CodArbitro, int Cartoes, int Jogos) {
         Arbitro abr = new Arbitro(Nome, CPF, Telefone, Funcao, Email, CodArbitro, Cartoes, Jogos);
         arbitros.add(abr);
     }
