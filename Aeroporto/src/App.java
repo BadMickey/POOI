@@ -1,9 +1,12 @@
 import java.util.ArrayList;
 
-import Aeronave.*;
-import Pessoas.*;
-import Voo.*;
-
+import Aeronave.Aviao;
+import Aeronave.Modelo;
+import Pessoas.Bagagem;
+import Pessoas.Funcionario;
+import Pessoas.Passageiro;
+import Voo.Aeroporto;
+import Voo.Voo;
 public class App {
     public static void main(String[] args) throws Exception {
 
